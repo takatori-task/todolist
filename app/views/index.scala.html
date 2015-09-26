@@ -1,22 +1,17 @@
-@(tasks: List[Task], taskForm: Form[String])(implicit messages: Messages)
+@(tasks: List[Task], taskForm: Form[String], user: Option[String])(implicit messages: Messages)
 
 @import helper._
 
-@main("Todo list") {
-
-	<div class="contents">
-	
-	<h3>Add a new task</h3>
-
+@main("Todo list"){
+	@navbar(user)
+}{
+<div class="contents"><h3>Add a new task</h3>
 	@form(routes.Application.newTask) {
-
 		<input type="text" name="label" id="label" placeholder="todo" value="">
 		<input type="submit" class="ghost" value="Create">
 	}
 
-	
 	<h1>@tasks.size task(s)</h1>
-	
 	<ul class="task-list">
 		@tasks.map { task =>
 			<li>
@@ -29,6 +24,5 @@
 			</li>
 		}
 	</ul>
-	
 	</div>
 }

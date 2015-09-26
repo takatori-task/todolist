@@ -12,6 +12,7 @@ POST    /tasks/:id/delete           controllers.Application.deleteTask(id: Long)
 
 # Authoraization
 GET     /signin                      controllers.Application.signin
+GET     /signout                      controllers.Application.signout
 
 # OAuth2 Stuff
 GET        /_oauth-callback         util.OAuth2.callback(code: Option[String], state: Option[String])

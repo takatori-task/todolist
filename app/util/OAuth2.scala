@@ -63,7 +63,6 @@ object OAuth2 extends Controller {
       WS.url("https://api.github.com/user").
         withHeaders(HeaderNames.AUTHORIZATION -> s"token $authToken").
         get().map { response =>
-          //println(response.json \ "avatar_url")
           val user = (response.json \ "login").as[String]
           Redirect(controllers.routes.Application.tasks)withSession("user" -> user)
         }

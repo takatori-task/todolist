@@ -1,0 +1,22 @@
+@(user: Option[String])
+<div class="nav">
+	<ul>
+		<li>
+			<a href="@routes.Application.index"><img src="@routes.Assets.versioned("images/logo.png")" width="80" height="51" class="logo"></a>
+		</li>
+		<li>
+			@user match {
+
+				case Some(user) => {
+					<a href="@routes.Application.signout">Sign Out</a>
+				}
+
+				case _ => {
+					<a href="@routes.Application.signin">Sign in</a>			
+				}
+			}
+			</a>
+		</li>
+	</ul>
+</div>
+

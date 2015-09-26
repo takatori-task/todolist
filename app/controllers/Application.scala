@@ -28,20 +28,21 @@ object Application extends Controller {
     val scope = "user"   // github scope - request repo access
     val state = UUID.randomUUID().toString  // random confirmation string
     val redirectUrl = oauth2.getAuthorizationUrl(callbackUrl, scope, state)
-    Ok(views.html.signin("Your new application is ready.", redirectUrl)).
-      withSession("oauth-state" -> state)
+    Redirect(redirectUrl).withSession("oauth-state" -> state)
   }
 
-  def signout = TODO
+  def signout = Action { implicit request =>
+    Redirect(routes.Application.tasks).withSession(request.session - "user")
+  }
   
 
-  def tasks = Action {
-    Ok(views.html.index(Task.all(), taskForm))
+  def tasks = Action { implicit request =>
+    Ok(views.html.index(Task.all(), taskForm, request.session.get("user")))
   }
 
   def newTask = Action { implicit request =>
     taskForm.bindFromRequest.fold(
-      errors => BadRequest(views.html.index(Task.all(), errors)),
+      errors => BadRequest(views.html.index(Task.all(), errors, request.session.get("user"))),
       label => {
         Task.create(request.session.get("user"), label)
         Redirect(routes.Application.tasks)
