@@ -13,10 +13,22 @@ object Task {
     SQL("select * from task").as(task *)
   }
 
+  def user(user: String): List[Task] = DB.withConnection { implicit c =>
+    SQL("select * from task where user = {user}").on(
+      'user -> user
+    ).as(task *)
+  }
+
   def create(user: Option[String], label: String) {
+
+    val name = user match {
+      case Some(u) => user.get
+      case None => ""
+    }
+
     DB.withConnection { implicit c =>
       SQL("insert into task(user, label) values ({user},{label})").on(
-        'user -> user.get,
+        'user -> name,
         'label -> label
       ).executeUpdate()
     }

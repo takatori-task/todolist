@@ -37,7 +37,10 @@ object Application extends Controller {
   
 
   def tasks = Action { implicit request =>
-    Ok(views.html.index(Task.all(), taskForm, request.session.get("user")))
+    request.session.get("user") match {
+      case Some(user) => Ok(views.html.index(Task.user(user), taskForm, request.session.get("user")))
+      case None => Ok(views.html.index(Task.all(), taskForm, request.session.get("user")))
+    }
   }
 
   def newTask = Action { implicit request =>
