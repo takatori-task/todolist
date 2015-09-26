@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #2FCDB4;
+}
+ 
+.nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: left;
+  padding-left: 10px;
+  margin: 0;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+ 
+.nav a:hover {
+  background-color: #005f5f;
+}
+ 
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+ 
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+ 
+  /* Option 1 - Display Inline */
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+ 
+  /* Options 2 - Float
+  .nav li {
+    float: left;
+  }
+  .nav ul {
+    overflow: auto;
+    width: 600px;
+    margin: 0 auto;
+  }
+  .nav {
+    background-color: #444;
+  }
+  */
+}
+
+.contents {
+    width: 80%;
+    margin: 0 auto;                
+}
+
+input[type="text"]{
+    font-size: 15px;
+    height: 40px;
+    width: 80%;
+	outline: none;
+	border: 1px solid #aaa;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;    
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+	box-shadow: 0 0 7px #1abc9c;
+	border: 1px solid #1abc9c;
+}
+
+.ghost {
+  display: inline-block;
+  padding: 20px 20px;
+  border: solid 2px #fff;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.2);
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Helvetica, Arial, sans-serif;
+}
+.ghost:hover {
+  color: #333;
+  background: #fff;
+}
+
+.task-list  li {
+    font-size: 20px;
+	position: relative;
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.task-list  li::after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: .65em;
+	left: -1em;
+	width: 8px;
+	height: 1px;
+	background-color: #666;    
+}
+
+.task {
+    display: inline-block;
+}
+
+.trash {
+    color: #fff;
+    font-size: 5px;
+    border-radius:5px;
+    background-color: #FF3333;
+}

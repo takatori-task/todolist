@@ -1,0 +1,34 @@
+@(tasks: List[Task], taskForm: Form[String])(implicit messages: Messages)
+
+@import helper._
+
+@main("Todo list") {
+
+	<div class="contents">
+	
+	<h3>Add a new task</h3>
+
+	@form(routes.Application.newTask) {
+
+		<input type="text" name="label" id="label" placeholder="todo" value="">
+		<input type="submit" class="ghost" value="Create">
+	}
+
+	
+	<h1>@tasks.size task(s)</h1>
+	
+	<ul class="task-list">
+		@tasks.map { task =>
+			<li>
+			<div class="task">@task.label</div>
+			<div class="task">
+			@form(routes.Application.deleteTask(task.id)) {
+				<input type="submit" class="trash" value="Delete">
+			}
+			</div>
+			</li>
+		}
+	</ul>
+	
+	</div>
+}

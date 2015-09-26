@@ -1,0 +1,11 @@
+@(message: String, redirectUrl: String)
+
+@main("Welcome to Play") {
+	<div class="contents">
+    <h2>Not Yet Authenticated</h2>
+    <a href="@redirectUrl">
+	Log in with GITHUB!
+	<img src="@routes.Assets.versioned("images/Octocat.png")" width="400" height="332">
+	</a>
+	</div>
+}
