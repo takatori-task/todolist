@@ -1,12 +1,20 @@
 logs
 target
-/.idea
-/.idea_modules
-/.classpath
-/.project
-/.settings
-/RUNNING_PID
+.idea
+.idea_modules
+.classpath
+.project
+.settings
+RUNNING_PID
 .ensime
-/.ensim_cache
+.ensime_cache
+.sbtserver
+project/project
+project/target
+*.iml
+*.eml
+.cache
+
+# Mac
 .DS_Store
 
