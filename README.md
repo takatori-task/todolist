@@ -1,38 +1,55 @@
 # todolist
 
-![Badge Status](https://ci-as-a-service)
+[![Circle CI](https://circleci.com/gh/takatori-task/todolist.svg?style=svg)](https://circleci.com/gh/takatori-task/todolist)
 
-シンプルなtodolist
 
 ## Description
 ScalaとPlayframework練習用アプリケーション
 Github認証によるログインが可能
 
 ***DEMO:***
-
-![Demo]()
-
-## Features
-
-- 
-- 
-- 
-
+- [heroku](https://mighty-escarpment-8819.herokuapp.com/)
+![Demo](public/images/todolist.png)
 
 ## Requirement
-
 - Scala 2.11
-- Play 2.4.3
+- Play 2.4
+- postgresql 9.4
 
-## Usage
 
-1. Usage
-2. Usage
-3. Usage
+## Installation(Mac)
+### postgresql起動
+```
+$ postgres -D /usr/local/var/postgres
+```
 
-## Installation
+### database作成
+```
+$ createdb todolist
+```
 
-    $ git clone https://github.com/takatori-task/todolist.git
+### リポジトリのクローン
+```
+$ git clone https://github.com/takatori-task/todolist.git
+$ cd todolist
+```
+
+### コンパイル
+```
+$ sbt compile
+```
+
+### 実行
+```
+$ sbt run
+```
+localhost:9000にアクセス
+
+### テスト実行
+```
+$ sbt test
+```
+
 
 ## Author
 
