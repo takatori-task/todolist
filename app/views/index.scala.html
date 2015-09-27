@@ -15,6 +15,9 @@
 	<ul class="task-list">
 		@tasks.map { task =>
 			<li>
+			@if(task.user != ""){
+				<div class="task">[@task.user]</div>
+			}
 			<div class="task">@task.label</div>
 			<div class="task">
 			@form(routes.Application.deleteTask(task.id)) {
