@@ -5,7 +5,7 @@ import anorm.SqlParser._
 import play.api.db._
 import play.api.Play.current
 
-case class Task(id: Long, user: String, label: String)
+case class Task(id: Long, user_id: String, label: String)
 
 object Task {
 
@@ -13,22 +13,22 @@ object Task {
     SQL("select * from task").as(task *)
   }
 
-  def user(user: String): List[Task] = DB.withConnection { implicit c =>
-    SQL("select * from task where user = {user}").on(
-      'user -> user
+  def user(user_id: String): List[Task] = DB.withConnection { implicit c =>
+    SQL("select * from task where user_id = {user_id}").on(
+      'user_id -> user_id
     ).as(task *)
   }
 
-  def create(user: Option[String], label: String) {
+  def create(user_id: Option[String], label: String) {
 
-    val name = user match {
-      case Some(u) => user.get
+    val name = user_id match {
+      case Some(u) => user_id.get
       case None => ""
     }
 
     DB.withConnection { implicit c =>
-      SQL("insert into task(user, label) values ({user},{label})").on(
-        'user -> name,
+      SQL("insert into task(user_id, label) values ({user_id},{label})").on(
+        'user_id -> name,
         'label -> label
       ).executeUpdate()
     }
@@ -44,9 +44,9 @@ object Task {
 
   val task = {
     get[Long]("id") ~
-    get[String]("user") ~
+    get[String]("user_id") ~
     get[String]("label") map {
-      case id ~ user ~ label => Task(id, user,  label)
+      case id ~ user_id ~ label => Task(id, user_id,  label)
     }
   }
 }

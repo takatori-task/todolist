@@ -15,8 +15,8 @@
 	<ul class="task-list">
 		@tasks.map { task =>
 			<li>
-			@if(task.user != ""){
-				<div class="task">[@task.user]</div>
+			@if(task.user_id != ""){
+				<div class="task">[@task.user_id]</div>
 			}
 			<div class="task">@task.label</div>
 			<div class="task">
