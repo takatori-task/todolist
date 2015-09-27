@@ -6,7 +6,7 @@ machine:
 
   environment:
     CIRCLE_ENV: test
-    DATABASE_URL: postgres://postgres:password@127.0.0.1:5432/todolist
+    DATABASE_URL: postgres://127.0.0.1:5432/todolist
 
 # Collect build artifacts
 general:
@@ -25,6 +25,11 @@ dependencies:
   override:
     - sbt test:compile
 
+## Customize database setup
+database:
+  override:
+    - createdb todolist
+    
 test:
   override:
     - sbt test
