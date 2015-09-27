@@ -1,7 +1,12 @@
 machine:
-  timezone: UTC
+  timezone: Asia/Tokyo
+  
   java:
     version: oraclejdk8
+
+  environment:
+    CIRCLE_ENV: test
+    DATABASE_URL: postgres://postgres:password@127.0.0.1:5432/todolist
 
 # Collect build artifacts
 general:
