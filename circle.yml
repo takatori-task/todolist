@@ -26,8 +26,8 @@ dependencies:
     - sbt test:compile
 
 test:
-  override:
-    - sbt test
+  #override:
+   # - sbt test
   # Copy test reports to Circle test reports dir then package app for deploy
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
