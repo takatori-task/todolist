@@ -8,7 +8,7 @@ ScalaとPlayframework練習用アプリケーション
 Github認証によるログインが可能
 
 ***DEMO:***
-- [heroku](https://mighty-escarpment-8819.herokuapp.com/)
+- [heroku](https://takatori-todolist.herokuapp.com/)
 ![Demo](public/images/todolist.png)
 
 ## Requirement
