@@ -6,8 +6,8 @@ machine:
 
   environment:
     CIRCLE_ENV: test
-    DATABASE_URL: "jdbc:mysql://127.0.0.1/circle_test"
-    DATABASE_USER: ubuntu
+    JDBC_DATABASE_URL: "jdbc:mysql://127.0.0.1/circle_test"
+    JDBC_DATABASE_USER: ubuntu
     
 # Collect build artifacts
 general:
