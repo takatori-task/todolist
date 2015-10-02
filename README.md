@@ -14,18 +14,27 @@ Github認証によるログインが可能
 ## Requirement
 - Scala 2.11
 - Play 2.4
-- postgresql 9.4
+- sbt 0.13.9
+- MySQL 5.6
 
 
 ## Installation(Mac)
-### postgresql起動
+### MySQL起動
 ```
-$ postgres -D /usr/local/var/postgres
+$ mysql.server start
+```
+以下のようなエラーが発生した場合は
+- sudoで実行してみる
+- PIDファイルやディレクトリの所有者をmysqlに変更する
+- PIDファイルを削除する
+```
+. ERROR! The server quit without updating PID file
 ```
 
 ### database作成
 ```
-$ createdb todolist
+$ mysql
+mysql > create database todolist;
 ```
 
 ### リポジトリのクローン
